@@ -17,7 +17,7 @@ title: "Essays: Vaibhav Yenamandra"
 email: yvvaibhav@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   I write about machine learning, computer science, dota2 and sometimes just rant arbitrarily
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "blog.theyenaman.me" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  vaibhav-y
 
