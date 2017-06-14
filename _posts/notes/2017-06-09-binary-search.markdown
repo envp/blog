@@ -5,6 +5,7 @@ date:   2017-06-09
 categories: interviews algorithms notes search
 published: true
 math: true
+comments: true
 ---
 
 > Given an array $X$ sorted in ascending order, return the index of a queried element, or -1 if the element is not present in the array.
@@ -31,7 +32,7 @@ So we can guess an element to begin with.
 
 ## Code
 
-{% highlight python linenos %}
+```python
 def binarySearch(ary, q, lBound=0, rBound=-1):
     # Initial guess. Can be anything, choose midpoint for simplicity
     if rBound == -1:
@@ -51,7 +52,7 @@ def binarySearch(ary, q, lBound=0, rBound=-1):
     else:
         # Move left boundary inwards
         return binarySearch(ary, q, mid + 1, rBound)
-{% endhighlight%}
+```
 
 
 ## References

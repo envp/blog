@@ -50,7 +50,7 @@ It is also more efficient than most other $\Theta(n^2)$ algorithms so its useful
 >Another useful example to remember about this process is how a deck of cards may be sorted by hand. You start with the top card and keep picking up single cards from the top of deck and inserted them into their correct places in the "sorted deck". The sorted deck has elements in the right relative order but not all of them are in their final places. 
 
 ### Code --- Insertion Sort
-{% highlight cpp linenos %}
+```cpp
 class Solution 
 {
     public:
@@ -74,7 +74,8 @@ class Solution
         }
     }
  }
-{% endhighlight %}
+```
+
 ## Algorithms --- Merge Sort
 Merge sort is a divide and conquer algorithm for sorting a large array. Well, how is it divide and conquer? 
 
@@ -85,7 +86,7 @@ Merge sort is also stable, although it is not in-place (since we require an arra
 
 ### Code --- Merge Sort
 
-{% highlight cpp linenos %}
+```cpp
 #include <climits>
 
 using namespace std;
@@ -153,7 +154,7 @@ class Solution
         }
     }
 };
-{% endhighlight %}
+```
 
 ## Algorithms --- QuickSort
 The key to understanding how something such as quicksort came about relies on understanding how the partitioning routine works in the grand scheme of sorting.
@@ -185,7 +186,8 @@ This is just what the partitioning function does. It picks an element and ensure
 Quicksort on average performs $\Theta(n \log n)$ with a worst case scenario of $\Theta(n^2)$. There are ways change partitioning (median of medians, randomized pivot selection) that ensure worst case of $\Theta(n \log n)$, but we won't be doing that here.
 
 ### Code --- QuickSort
-{% highlight cpp linenos %}
+
+```cpp
 #include <climits>
 
 using namespace std;
@@ -214,39 +216,39 @@ class Solution
         // Arbitarily select pivot to be middle element
         // This is the step that is changed to 
         // get randomized / median-of-medians quicksort
-		int i = p - 1;
-		int j = r + 1;
-		int x = nums[p];
+        int i = p - 1;
+        int j = r + 1;
+        int x = nums[p];
 		
-		// Once pivot element is selected, order the array
-		// around pivot
-		while(true)
-		{
-			// Search for first element larger than x to its left
-			do
-			{
-			    i++;
-			} while(nums[i] < x);
-			
-			// Search for first element smaller than x to its right
-			do
-			{
-			    j--;
-			} while(nums[j] > x);
-			
-			// Swap these two elements if the condition still holds
-			// Else return the pivot index 
-			// no violations implies the array was already partitioned
-			if(i >= j)
-			{
-			    return j;
-			}
-			
-			std::swap(nums[i], nums[j]);
-		}
+        // Once pivot element is selected, order the array
+        // around pivot
+        while(true)
+        {
+            // Search for first element larger than x to its left
+            do
+            {
+                i++;
+            } while(nums[i] < x);
+            
+            // Search for first element smaller than x to its right
+            do
+            {
+                j--;
+            } while(nums[j] > x);
+            
+            // Swap these two elements if the condition still holds
+            // Else return the pivot index 
+            // no violations implies the array was already partitioned
+            if(i >= j)
+            {
+                return j;
+            }
+            
+            std::swap(nums[i], nums[j]);
+        }
     }
 };
-{% endhighlight %}
+```
 
 ## Algorithms --- Heap Sort
 
@@ -290,7 +292,7 @@ Handy table to remember for partial sorting vs complete sorting using heaps:
 
 
 ### Code --- Heap Sort
-{% highlight cpp linenos %}
+```cpp
 #include <climits>
 
 using namespace std;
@@ -349,7 +351,7 @@ class Solution
         }
     }
 };
-{% endhighlight %}
+```
 
 ## References
 1. CLRS chapter 6 - Heapsort

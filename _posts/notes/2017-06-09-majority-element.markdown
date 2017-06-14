@@ -23,7 +23,7 @@ We will go through 2 algorithms to address this problem, both linear time, but r
 
 The idea here is to use an associative map (in the general case where we don't know the range of numbers that we will be dealing with) to store the counts of numbers we encounter. Alternatively, if we are aware of the range of numbers and are guranteed that the mapping is dense (more than n/2 numbers is likely to appear at least once) we can simply allocate space for an array to store all of these and treat the numbers as addresses themselves.
 
-{% highlight cpp linenos %}
+```cpp
 #include <map>
 
 using namespace std;
@@ -58,7 +58,7 @@ class Solution
         return -1;
     }
 }
-{% endhighlight%} 
+``` 
 
 ### Algorithm --- Boyer-Moore
 
@@ -68,7 +68,7 @@ This one is the Boyer-Moore majority vote algorithm. And works well in a streami
 
 One pitfall of this algorithm is that if the sequence has no majority element, it will report one of the elements as an answer hence a second pass is required if the majority element is not guaranteed ot exist.
 
-{% highlight cpp linenos %}
+```cpp
 using namespace std;
 
 class Solution
@@ -127,7 +127,7 @@ class Solution
     }
 }
 
-{% endhighlight%}
+```
 
 
 

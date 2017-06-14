@@ -15,18 +15,30 @@
 # in the templates via {{ site.myvariable }}.
 title: "Essays: Vaibhav Yenamandra"
 email: yvvaibhav@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  I write about machine learning, computer science, dota2 and sometimes just rant arbitrarily
+description: "I write about machine learning, computer science, dota2 and sometimes just rant arbitrarily"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "blog.theyenaman.me" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  vaibhav-y
-
+disqus:
+    shortname: tinmanbattleplan
+permalink: /:title/
 # Build settings
-markdown: kramdown
-highligher: pygments
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+    syntax_highlighter_opts:
+        css_class: 'highlight base16-dark'
+        span:
+          line_numbers: false
+        block:
+          line_numbers: true
+          start_line: 1
+
 theme: minima
 gems:
   - jekyll-feed
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md

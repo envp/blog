@@ -44,7 +44,7 @@ Kadane's algorithm relies exclusively on the above discussed properties and foll
 We run through the array keeping a track of the running sum and the maximum seen so far. If the running sum exceeds the maximum seen so far, update the maximum sum. However, if the running sum falls below zero, reset it to zero to indicate that the current iteration caused us to *change the left endpoint of our MSS*. The right endpoint of the MSS *changes whenever we encounter a new maximum*.
 
 ### Code
-{% highlight cpp linenos %}
+```cpp
 class Solution
 {
     public:
@@ -63,7 +63,7 @@ class Solution
         return maxSum;
     }
 };
-{% endhighlight%}
+```
 
 
 ## Algorithm --- Dynamic Programming
@@ -98,7 +98,7 @@ While scanning upwards through the array, either the maximum can change as follo
 	5. Otherwise, do nothing.
 
 ### Code
-{% highlight cpp linenos %}
+```cpp
 class Solution
 {
     public:
@@ -114,7 +114,7 @@ class Solution
         return maxSum;
     }
 };
-{% endhighlight%}
+```
 
 ## References
 1. CLRS chapter 4, divide and conquer
