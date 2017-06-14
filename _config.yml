@@ -23,6 +23,7 @@ github_username:  vaibhav-y
 
 # Build settings
 markdown: kramdown
+highligher: pygments
 theme: minima
 gems:
   - jekyll-feed
