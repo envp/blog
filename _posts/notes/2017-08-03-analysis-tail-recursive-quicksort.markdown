@@ -7,10 +7,9 @@ published: true
 math: true
 psuedocode: true
 ---
-# Analysis of a tail recursive Quicksort
+# Analysis of tail recursive Quicksort
 
 This is a problem that appears as a practice question in Introduction to Algorithms 2rd edition, 3rd Edition by Charles E. Leiserson, Clifford Stein, Ronald Rivest, and Thomas H. Cormen. It's also an interesting exercise / excuse to dig far too deep into quicksort!
-
 
 ## Pseudocode
 ```python
