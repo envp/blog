@@ -58,4 +58,3 @@ def binarySearch(ary, q, lBound=0, rBound=-1):
 ## References
 1. CLRS Chapter 4
 2. [Topcoder - Binary Search](https://www.topcoder.com/community/data-science/data-science-tutorials/binary-search/)
-3. [LeetCode - Majority Element](https://leetcode.com/problems/majority-element/#/description)
