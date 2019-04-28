@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Bitwise AND of numbers in a range"
 date:   2017-07-08
 categories: [interviews, algorithms, notes, bit-hacks]

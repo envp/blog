@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Brief Essay on Sorting Algorithms"
 date:   2017-06-11
 categories: [interviews, algorithms, notes, sorting]

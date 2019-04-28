@@ -1,10 +1,11 @@
 ---
-layout: post
+layout: single
 title:  "Majority Element"
 date:   2017-06-09
-categories: interviews algorithms notes
+categories: [interviews, algorithms, notes]
 published: true
 math: true
+author: Vaibhav Yenamandra
 ---
 
 >Given an array of size $n$, find the majority element. The majority element is the element that appears more than $\lfloor\frac{n}{2}\rfloor$ times. You may assume that the array is non-empty and the majority element always exist in the array.
@@ -58,7 +59,7 @@ class Solution
         return -1;
     }
 }
-``` 
+```
 
 ### Algorithm --- Boyer-Moore
 
@@ -83,7 +84,7 @@ class Solution
         // Scan the **rest** of the array for updating the candidate
         for(int i = 1; i < n; ++i)
         {
-            // Entries cancelled each other out so far, 
+            // Entries cancelled each other out so far,
             // set a new majority element
             if(count == 0)
             {
@@ -145,7 +146,7 @@ Since we increment the counter for every repetition and decrement the counter fo
 
 
 
-There are at most $\lfloor\frac{n}{2}\rfloor- 1$ re-assignments (staggered elements) in the algorithm corresponding to candidate elements which were not the majority. However due to the existence of a majority element, there would be at most $\lfloor\frac{n}{2}\rfloor$ cases where no reassignment would occur (clumped together). Therefore if we encounter $m$ the majority element in the array; this element would persist till the end due to fewer cases where the reassignment occurs than not. 
+There are at most $\lfloor\frac{n}{2}\rfloor- 1$ re-assignments (staggered elements) in the algorithm corresponding to candidate elements which were not the majority. However due to the existence of a majority element, there would be at most $\lfloor\frac{n}{2}\rfloor$ cases where no reassignment would occur (clumped together). Therefore if we encounter $m$ the majority element in the array; this element would persist till the end due to fewer cases where the reassignment occurs than not.
 
 
 

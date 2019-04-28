@@ -1,10 +1,11 @@
 ---
-layout: post
+layout: single
 title:  "Level order tree traversal"
 date:   2017-07-09
-categories: interviews algorithms notes tree traversal level-order queue
+categories: [interviews, algorithms, notes, tree, traversal, level-order, queue]
 published: true
 math: true
+author: Vaibhav Yenamandra
 ---
 
 
@@ -13,7 +14,7 @@ math: true
 Given a tree $T$, return each level of this tree as a separate vector / array.
 
 ## Discussion
-The idea is the same as level order traversal, but asks us to be able to identify when we switch between levels in the tree. 
+The idea is the same as level order traversal, but asks us to be able to identify when we switch between levels in the tree.
 
 With vanilla level order traversal, we maintain a queue of nodes to visit. Each time we process the queue's head, we add the children of currently processed node to the tail of the queue. The psuedocode for this looks like so:
 
@@ -29,7 +30,7 @@ define LevelOrder(Tree T):
 		root = Dequeue(Q).value
 		yield root
 		foreach child in root.children:
-			Enqueue(child)	
+			Enqueue(child)
 ```
 #### Recursive
 ```psuedo
@@ -105,5 +106,5 @@ define LevelOrderUtil(Queue Q):
 		LevelOrderUtil(Q)
 ```
 
-### TODO 
+### TODO
 --- Further optimizations are possible at a cursory glance like combining the while loops into one (to de-populate and populate the queues in a single loop), look into these

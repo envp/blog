@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: single
 title:  "Binary Search"
 date:   2017-06-09
-categories: interviews algorithms notes search
+categories: [interviews, algorithms, notes, search]
 published: true
 math: true
-comments: true
+author: Vaibhav Yenamandra
 ---
 
 > Given an array $X$ sorted in ascending order, return the index of a queried element, or -1 if the element is not present in the array.
@@ -14,7 +14,7 @@ comments: true
 The key pattern to notice here is the sorted order. Sorted order implies a lot of equivalent things:
 
 1. All elements are in order
-2. The sequence is monotone according to some pre-defined order. 
+2. The sequence is monotone according to some pre-defined order.
 3. Every $x_k$ to the right of $x_i$ shares its relation with $x_i$ with every $x_j$ to the left of $x_i$. Convoluted definition, but useful. i.e. $\forall\: k > i > j \: x_k \: R \: x_i \Longrightarrow\ x_i \: R \: x_j$. The converse also holds.
 
 All of those three are the same idea. As with any problem begin with a guess at the solution.
@@ -23,7 +23,7 @@ Say the input array is: $X = \{x_1, x_2, ..., x_n\}$, and we queried for $q$. No
 
 If $q$ is a valid query: $\exists\:x_i \in X$ s.t. $x_i = q$, else $\exists\:x_i, x_j \in X$ s.t. $x_i < q < x_j$.
 
-So we can guess an element to begin with. 
+So we can guess an element to begin with.
 
 * If our guess $x$ is larger than $q$, it means $x$ is to the right of $q$, effectively forming a right-boundary of sorts. We can discard everything to the right of $x$ because we know $q$ has to be in the part that is to the left of $x$.
 * If our guess $x$ is smaller than $q$, it means $x$ is to the left of $q$, acting like a left boundary. We can discard everything left of this boundary since we know $q$ has to be on the right side of this boundary.
