@@ -2,11 +2,11 @@
 layout: post
 title:  "Bitwise AND of numbers in a range"
 date:   2017-07-08
-categories: interviews algorithms notes bit-hacks
+categories: [interviews, algorithms, notes, bit-hacks]
 math: true
 published: true
+author: Vaibhav Yenamandra
 ---
-# Bitwise AND of numbers in a range
 
 Given a range $[m, n]$ where $0 \leq m \leq n \leq 2^{31} - 1$, return the bitwise AND of all numbers in this range, inclusive.
 
@@ -34,6 +34,7 @@ Take a number, $m = 14$. Lets examine what happens in binary as we move forward 
 (29) 0000 0000 0000 0000 0000 0000 0001 1101
 ```
 Looking from the right hand side, here's some properties to keep in mind:
+
 1. $n$ is likely to have more significant bits set than $m$. So the AND of all contiguous elements in this range can only be as large as $m$
 2. If $m < 2^k < n$, then the result is always a $0$, since the power of $2$'s leftmost set bit will be further right than $m$'s leftmost set bit
 3. If $n > m + -1$, the rightmost bit for this range is $0$
@@ -86,10 +87,10 @@ It doesn't necessarily have to be $1$, but it has to end when right shifting the
 ## Code
 This here is an iterative `C++` implementation of the idea above
 ```cpp
-class Solution 
+class Solution
 {
     public:
-    int rangeBitwiseAnd(int m, int n) 
+    int rangeBitwiseAnd(int m, int n)
     {
         int rightMask = 1;
         while(n != m)
@@ -98,10 +99,9 @@ class Solution
             n >>= 1;
             rightMask <<= 1;
         }
-        
+
         // Bottom k-bits are cleared
         return m * rightMask;
     }
 };
 ```
-> Written with [StackEdit](https://stackedit.io/).

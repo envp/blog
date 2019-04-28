@@ -2,13 +2,11 @@
 layout: post
 title:  "Brief Essay on Sorting Algorithms"
 date:   2017-06-11
-categories: interviews algorithms notes sorting
+categories: [interviews, algorithms, notes, sorting]
 math: true
 published: true
+author: Vaibhav Yenamandra
 ---
-
-
-# Sorting
 > Given an array $A$ of numbers, find a permutation of it so that the array's elements are monotonic in its indices.
 
 ## Discussion
@@ -28,7 +26,7 @@ Each of these has their own special property that interests me leading to inclus
 ### Small aside on selection sort
 There are other simple algorithms like selection sort whose primary focus is that after the $i^{th}$ iteration $A[:i]$ will never change. i.e. it already contains sorted elements in the correct order.
 
-This makes it that selection sort is what is called a *partial sorting* algorithm. i.e. a sorting algorithm that can be stopped midway to get a part of the correctly sorted answer which can then be extracted and processed outside. A simple use case for partial sorting algorithms would be sorting extremely large lists using a buffer and merge procedure. Or getting the k-th order statistics of an array. 
+This makes it that selection sort is what is called a *partial sorting* algorithm. i.e. a sorting algorithm that can be stopped midway to get a part of the correctly sorted answer which can then be extracted and processed outside. A simple use case for partial sorting algorithms would be sorting extremely large lists using a buffer and merge procedure. Or getting the k-th order statistics of an array.
 
 Selection sort is obviously extremely inefficient, so I've only written this because I tend to forget the difference between selection and insertion sort after years of studying CS, because they're both algorithms that rely heavily on swap and the initial subarray $A[:i]$ is sorted for both. Just that insertion sort is stricter in specification saying that $A[:i]$ must be sorted and never change after the $i^{th}$ iteration.
 
@@ -47,11 +45,11 @@ Why is Insertion sort special? Read the [wiki page](https://en.wikipedia.org/wik
 
 It is also more efficient than most other $\Theta(n^2)$ algorithms so its useful to have it as a bottom layer sort for small arrays in a hybrid approach where large arrays are processed by efficient algorithms and smaller segments are sorted by insertion sort which is better in this regime of array sized.
 
->Another useful example to remember about this process is how a deck of cards may be sorted by hand. You start with the top card and keep picking up single cards from the top of deck and inserted them into their correct places in the "sorted deck". The sorted deck has elements in the right relative order but not all of them are in their final places. 
+>Another useful example to remember about this process is how a deck of cards may be sorted by hand. You start with the top card and keep picking up single cards from the top of deck and inserted them into their correct places in the "sorted deck". The sorted deck has elements in the right relative order but not all of them are in their final places.
 
 ### Code --- Insertion Sort
 ```cpp
-class Solution 
+class Solution
 {
     public:
     void insertionSort(vector<int>& nums, int p, int r)
@@ -61,14 +59,14 @@ class Solution
             // Current processed element
             int x = nums[i];
             int j = i - 1;
-            
+
             // Move elements left of x
             // rightwards to make space for x
             for(; nums[j] > x && j >= 0; --j)
             {
                 std::swap(nums[j], nums[j + 1]);
             }
-            
+
             // j now points left of insertion index
             nums[j + 1] = x;
         }
@@ -77,7 +75,7 @@ class Solution
 ```
 
 ## Algorithms --- Merge Sort
-Merge sort is a divide and conquer algorithm for sorting a large array. Well, how is it divide and conquer? 
+Merge sort is a divide and conquer algorithm for sorting a large array. Well, how is it divide and conquer?
 
 The key objective is to sort smaller and smaller segments of the array called *runs* and *merge* these together into a larger sorted array. Since it is possible to merge two sorted arrays into one in linear time if variable extra space is allowed we have a sorting algorithm performing at $\Theta(n \log n)$ time complexity.
 
@@ -91,7 +89,7 @@ Merge sort is also stable, although it is not in-place (since we require an arra
 
 using namespace std;
 
-class Solution 
+class Solution
 {
     public:
     void mergeSort(vector<int>& nums, int p, int r)
@@ -108,7 +106,7 @@ class Solution
             merge(nums, p, q, r);
         }
     }
-    
+
     // Merges two sorted arrays
     private:
     void merge(vector<int>& nums, int p, int q, int r)
@@ -117,27 +115,27 @@ class Solution
         int rsize = r - q;
         int lt = 0;
         int rt = 0;
-        
+
         // Allocate temp storage for merging
         vector<int> ltemp(lsize + 1);
         vector<int> rtemp(rsize + 1);
-        
+
         for(int i = 0; i < lsize; ++i)
         {
             ltemp[i] = nums[i + p];
         }
-        
+
         for(int i = 0; i < rsize; ++i)
         {
             rtemp[i] = nums[i + q + 1];
         }
-        
+
         // Poor man's infinity
-        // Sentinel value so that 
+        // Sentinel value so that
         // bounds checking is simplified for us
         ltemp[lsize] = INT_MAX;
         rtemp[rsize] = INT_MAX;
-        
+
         for(int i = p; i <= r; ++i)
         {
             if(ltemp[lt] <= rtemp[rt])
@@ -192,7 +190,7 @@ Quicksort on average performs $\Theta(n \log n)$ with a worst case scenario of $
 
 using namespace std;
 
-class Solution 
+class Solution
 {
     public:
     void quickSort(vector<int>& nums, int p, int r)
@@ -201,25 +199,25 @@ class Solution
         {
             // Pivot index
             int q = partition(nums, p , r);
-            // Left half, q - 1 because the element nums[q] 
+            // Left half, q - 1 because the element nums[q]
             // is already ordered and sorted
             quickSort(nums, p, q);
             // Right half
             quickSort(nums, q + 1, r);
         }
     }
-    
+
     // Partition a subarray of an array
     private:
     int partition(vector<int>& nums, int p, int r)
     {
         // Arbitarily select pivot to be middle element
-        // This is the step that is changed to 
+        // This is the step that is changed to
         // get randomized / median-of-medians quicksort
         int i = p - 1;
         int j = r + 1;
         int x = nums[p];
-		
+
         // Once pivot element is selected, order the array
         // around pivot
         while(true)
@@ -229,21 +227,21 @@ class Solution
             {
                 i++;
             } while(nums[i] < x);
-            
+
             // Search for first element smaller than x to its right
             do
             {
                 j--;
             } while(nums[j] > x);
-            
+
             // Swap these two elements if the condition still holds
-            // Else return the pivot index 
+            // Else return the pivot index
             // no violations implies the array was already partitioned
             if(i >= j)
             {
                 return j;
             }
-            
+
             std::swap(nums[i], nums[j]);
         }
     }
@@ -275,20 +273,20 @@ So in order to sort using something like this, we need to do the following
 2. Extract maximum from the max heap $\Theta(1)$
 3. Maintain the max-heap property $O(\log n)$
 
-The total cost of this would be $cost_{1} + \#elements (cost_2 + cost_3)$. It turns out that this is $O(n \log n)$
+The total cost of this would be $cost\_{1} + length(elements) \times (cost\_2 + cost\_3)$. It turns out that this is $O(n \log n)$
 
 `buildMaxHeap`
  We start at the middle of the array because of how the heap indexing works(roots to the left will have children on the right half), starting at n - 1 would end up processing elements twice and lead to incorrect heap creation.
 
-`maxHeapify`: 
+`maxHeapify`:
 This function assumes that the parent nodes follow the heap property and trickles down the validation to child nodes. Each iteration assumes that the largest element is at the root(maxheap property) and checks against either child to see if this is violated. If a violation occurs, the offender is exchanged and we heapify that subtree only. One thing to note is that is assumes that there is **at most a single violation per iteration**. Multiple violations per iteration would mean that the $O(\log n)$ bound is no longer valid.
 
 Handy table to remember for partial sorting vs complete sorting using heaps:
 
 | Partial sort  	| Type of Heap  	| Full sort	type	|
-|---					|---						|---	
-| Ascending  	| Min heap 			| Descending 	|
-| Descending  	| Max heap		 	| Ascending 		|
+|---				|---				|---                |
+| Ascending  	    | Min heap 			| Descending 	    |
+| Descending  	    | Max heap		 	| Ascending 		|
 
 
 ### Code --- Heap Sort
@@ -297,15 +295,15 @@ Handy table to remember for partial sorting vs complete sorting using heaps:
 
 using namespace std;
 
-class Solution 
+class Solution
 {
     public:
     void heapSort(vector<int>& nums, int k)
     {
         int n = nums.size();
-        
+
         buildMaxHeap(nums);
-        
+
         // Emit largest values one by one.
         // Repeat n times with heapification
         for(int i = n - 1; i >= n - k; --i)
@@ -314,36 +312,36 @@ class Solution
             maxHeapify(nums, 0, i);
         }
     }
-    
+
     private:
     void buildMaxHeap(vector<int>& nums)
     {
         int n = nums.size();
-        
+
         // Create a max heap
         for(int i = n/2 - 1; i >= 0; --i)
         {
             maxHeapify(nums, i, n);
         }
     }
-    
+
     private:
     void maxHeapify(vector<int>& nums, int i, int size)
     {
         int l = 2 * i + 1;
         int r = 2 * i + 2;
         int largest = i;
-        
+
         if(l < size && nums[l] > nums[largest])
         {
             largest = l;
         }
-        
+
         if(r < size && nums[r] > nums[largest])
         {
             largest = r;
         }
-        
+
         if(largest != i)
         {
             std::swap(nums[i], nums[largest]);
