@@ -4,8 +4,6 @@ title:  "Bitwise AND of numbers in a range"
 date:   2017-07-08
 categories: [interviews, algorithms, notes, bit-hacks]
 math: true
-published: true
-author: Vaibhav Yenamandra
 ---
 
 Given a range $[m, n]$ where $0 \leq m \leq n \leq 2^{31} - 1$, return the bitwise AND of all numbers in this range, inclusive.

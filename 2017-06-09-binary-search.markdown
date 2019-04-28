@@ -3,9 +3,8 @@ layout: single
 title:  "Binary Search"
 date:   2017-06-09
 categories: [interviews, algorithms, notes, search]
-published: true
+published: false
 math: true
-author: Vaibhav Yenamandra
 ---
 
 > Given an array $X$ sorted in ascending order, return the index of a queried element, or -1 if the element is not present in the array.

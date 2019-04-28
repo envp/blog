@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: single
 title:  "Maximum Sum Subarray"
 date:   2017-06-11
-categories: interviews algorithms notes
+categories: [interviews, algorithms, notes]
 math: true
-published: true
+draft: true
 ---
 
 > Given an array of size $n$, find a contiguous subsequence (a subarray) with the maximum sum. The subarray should contain at least 1 element.

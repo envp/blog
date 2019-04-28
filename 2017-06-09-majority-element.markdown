@@ -3,9 +3,8 @@ layout: single
 title:  "Majority Element"
 date:   2017-06-09
 categories: [interviews, algorithms, notes]
-published: true
+published: false
 math: true
-author: Vaibhav Yenamandra
 ---
 
 >Given an array of size $n$, find the majority element. The majority element is the element that appears more than $\lfloor\frac{n}{2}\rfloor$ times. You may assume that the array is non-empty and the majority element always exist in the array.
