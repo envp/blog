@@ -28,7 +28,7 @@ This makes it that selection sort is what is called a *partial sorting* algorith
 
 Selection sort is obviously extremely inefficient, so I've only written this because I tend to forget the difference between selection and insertion sort after years of studying CS, because they're both algorithms that rely heavily on swap and the initial subarray $A[:i]$ is sorted for both. Just that insertion sort is stricter in specification saying that $A[:i]$ must be sorted and never change after the $i^{th}$ iteration.
 
-## Algorithms --- Insertion Sort
+## Algorithms -- Insertion Sort
 ### Properties
 With insertion sort the key idea is to remember how it operates:
 
@@ -45,7 +45,7 @@ It is also more efficient than most other $\Theta(n^2)$ algorithms so its useful
 
 >Another useful example to remember about this process is how a deck of cards may be sorted by hand. You start with the top card and keep picking up single cards from the top of deck and inserted them into their correct places in the "sorted deck". The sorted deck has elements in the right relative order but not all of them are in their final places.
 
-### Code --- Insertion Sort
+###  Insertion Sort
 ```cpp
 class Solution
 {
@@ -72,7 +72,7 @@ class Solution
  }
 ```
 
-## Algorithms --- Merge Sort
+## Merge Sort
 Merge sort is a divide and conquer algorithm for sorting a large array. Well, how is it divide and conquer?
 
 The key objective is to sort smaller and smaller segments of the array called *runs* and *merge* these together into a larger sorted array. Since it is possible to merge two sorted arrays into one in linear time if variable extra space is allowed we have a sorting algorithm performing at $\Theta(n \log n)$ time complexity.
@@ -80,12 +80,13 @@ The key objective is to sort smaller and smaller segments of the array called *r
 ### Properties
 Merge sort is also stable, although it is not in-place (since we require an array of size $\Theta(n)$ for temporary storage). It generally outperforms quicksort, performing fewer comparisons but requires more memory. Read more [here](https://en.wikipedia.org/wiki/Merge_sort#Analysis).
 
-### Code --- Merge Sort
+### Code
 
 ```cpp
 #include <climits>
+#include <vector>
 
-using namespace std;
+using std::vector;
 
 class Solution
 {
@@ -152,7 +153,7 @@ class Solution
 };
 ```
 
-## Algorithms --- QuickSort
+## QuickSort
 The key to understanding how something such as quicksort came about relies on understanding how the partitioning routine works in the grand scheme of sorting.
 
 Like merge sort this is also a divide and conquer algorithm, but unlike merge sort majority of the work is done at the divide step. The combine step is essentially *free* here. Quicksort repeatedly partitions an array in a special manner and combines these recursively partitioned segments into a sorted array.
@@ -162,7 +163,7 @@ To get droll facts out of the way, quicksort is in-place, it is not stable. Perf
 
 The partition routine's sole job is to select a pivot element $x$, any element and arrange the array so that all elements smaller than $x$ are to its left and all larger are to its right. Here's an image illustrating the process of pivoting an partitioning:
 
-<img src="http://slideplayer.com/slide/4423219/14/images/11/Quick+Sort+Partitions.jpg" alt="Quicksort overview">
+<img src="https://slideplayer.com/slide/4423219/14/images/11/Quick+Sort+Partitions.jpg" alt="Quicksort overview">
 
 Some questions to ask yourself about the partitioning routine:
 
@@ -181,12 +182,13 @@ This is just what the partitioning function does. It picks an element and ensure
 
 Quicksort on average performs $\Theta(n \log n)$ with a worst case scenario of $\Theta(n^2)$. There are ways change partitioning (median of medians, randomized pivot selection) that ensure worst case of $\Theta(n \log n)$, but we won't be doing that here.
 
-### Code --- QuickSort
+### Code -- QuickSort
 
 ```cpp
 #include <climits>
+#include <vector>
 
-using namespace std;
+using std::vector;
 
 class Solution
 {
@@ -246,7 +248,7 @@ class Solution
 };
 ```
 
-## Algorithms --- Heap Sort
+## Algorithms -- Heap Sort
 
 ### Properties
 Heap sort is a special sorting algorithm that has a lot of desirable properties including being our first efficient partial sorting algorithm so far. As a reminder, being able to partially sort means we do not need to run the whole algorithm to find out say the $5^{th}$ largest element. This is useful for performing order statistics , priority queue implementations on dynamic sequences. There are better techniques to do the same for static sequences (OS-Trees!), but those are for a later discussion.
@@ -255,11 +257,17 @@ Heap sort is similar to selection sort, in that we find the extreme (min) elemen
 
 A heap is an array that can be viewed as a nearly complete binary tree with each tree node having a corresponding array element. This below is the relationship of array indices wrt their relative positioning in the tree ($0$ indexing, with $0$ as root node)
 
-$$parent(i) = \left\lfloor \frac{i - 1}{2} \right\rfloor$$
-
-$$left(i) = 2i + 1$$
-
-$$right(i) = 2i + 2$$
+$$
+\begin{cases}
+    parent(i) = \left\lfloor \frac{i - 1}{2} \right\rfloor
+    \\
+    \\
+    left(i) = 2i + 1
+    \\
+    \\
+    right(i) = 2i + 2
+\end{cases}
+$$
 
 The kind of heap we are dealing with for creating a sorting algorithm is a max-heap (min-heap for descending sort). In addition to the above three, a max-heap also obeys:
 
@@ -287,11 +295,12 @@ Handy table to remember for partial sorting vs complete sorting using heaps:
 | Descending  	    | Max heap		 	| Ascending 		|
 
 
-### Code --- Heap Sort
+### Code
 ```cpp
 #include <climits>
+#include <vector>
 
-using namespace std;
+using std::vector;
 
 class Solution
 {
@@ -348,11 +357,3 @@ class Solution
     }
 };
 ```
-
-## References
-1. CLRS chapter 6 - Heapsort
-2. [GeeksforGeeks - Insertion Sort](http://www.geeksforgeeks.org/insertion-sort/)
-3. [GeeksforGeeks - Merge Sort](http://www.geeksforgeeks.org/merge-sort/)
-4. [GeeksforGeeks - Quick Sort](http://www.geeksforgeeks.org/quick-sort/)
-5. [GeeksforGeeks - Quick Sort using Hoare and Lomuto Parition](http://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/)
-6. [GeeksforGeeks - Heap Sort](http://www.geeksforgeeks.org/heap-sort/)
