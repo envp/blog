@@ -28,7 +28,7 @@ This makes it that selection sort is what is called a *partial sorting* algorith
 
 Selection sort is obviously extremely inefficient, so I've only written this because I tend to forget the difference between selection and insertion sort after years of studying CS, because they're both algorithms that rely heavily on swap and the initial subarray $A[:i]$ is sorted for both. Just that insertion sort is stricter in specification saying that $A[:i]$ must be sorted and never change after the $i^{th}$ iteration.
 
-## Algorithms -- Insertion Sort
+## Algorithm -- Insertion Sort
 ### Properties
 With insertion sort the key idea is to remember how it operates:
 
@@ -45,7 +45,7 @@ It is also more efficient than most other $\Theta(n^2)$ algorithms so its useful
 
 >Another useful example to remember about this process is how a deck of cards may be sorted by hand. You start with the top card and keep picking up single cards from the top of deck and inserted them into their correct places in the "sorted deck". The sorted deck has elements in the right relative order but not all of them are in their final places.
 
-###  Insertion Sort
+###  Code -- Insertion Sort
 ```cpp
 class Solution
 {
@@ -72,7 +72,7 @@ class Solution
  }
 ```
 
-## Merge Sort
+## Algorithm -- Merge Sort
 Merge sort is a divide and conquer algorithm for sorting a large array. Well, how is it divide and conquer?
 
 The key objective is to sort smaller and smaller segments of the array called *runs* and *merge* these together into a larger sorted array. Since it is possible to merge two sorted arrays into one in linear time if variable extra space is allowed we have a sorting algorithm performing at $\Theta(n \log n)$ time complexity.
@@ -80,7 +80,7 @@ The key objective is to sort smaller and smaller segments of the array called *r
 ### Properties
 Merge sort is also stable, although it is not in-place (since we require an array of size $\Theta(n)$ for temporary storage). It generally outperforms quicksort, performing fewer comparisons but requires more memory. Read more [here](https://en.wikipedia.org/wiki/Merge_sort#Analysis).
 
-### Code
+### Code -- Insertion Sort
 
 ```cpp
 #include <climits>
@@ -153,7 +153,7 @@ class Solution
 };
 ```
 
-## QuickSort
+## Algorithm -- QuickSort
 The key to understanding how something such as quicksort came about relies on understanding how the partitioning routine works in the grand scheme of sorting.
 
 Like merge sort this is also a divide and conquer algorithm, but unlike merge sort majority of the work is done at the divide step. The combine step is essentially *free* here. Quicksort repeatedly partitions an array in a special manner and combines these recursively partitioned segments into a sorted array.
@@ -248,7 +248,7 @@ class Solution
 };
 ```
 
-## Algorithms -- Heap Sort
+## Algorithm -- Heap Sort
 
 ### Properties
 Heap sort is a special sorting algorithm that has a lot of desirable properties including being our first efficient partial sorting algorithm so far. As a reminder, being able to partially sort means we do not need to run the whole algorithm to find out say the $5^{th}$ largest element. This is useful for performing order statistics , priority queue implementations on dynamic sequences. There are better techniques to do the same for static sequences (OS-Trees!), but those are for a later discussion.
@@ -295,7 +295,7 @@ Handy table to remember for partial sorting vs complete sorting using heaps:
 | Descending  	    | Max heap		 	| Ascending 		|
 
 
-### Code
+### Code -- Heap Sort
 ```cpp
 #include <climits>
 #include <vector>
