@@ -2,7 +2,7 @@
 layout: single
 title:  "Binary Search"
 date:   2017-06-09
-categories: [interviews, algorithms, notes, search]
+tags: [interviews, algorithms, notes, search]
 published: false
 math: true
 ---

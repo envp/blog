@@ -2,7 +2,7 @@
 layout: single
 title:  "Level order tree traversal"
 date:   2017-07-09
-categories: [interviews, algorithms, notes, tree, traversal, level-order, queue]
+tags: [interviews, algorithms, notes, tree, traversal, level-order, queue]
 draft: true
 math: true
 ---

@@ -2,7 +2,7 @@
 layout: single
 title:  "Brief Essay on Sorting Algorithms"
 date:   2017-06-11
-categories: [interviews, algorithms, notes, sorting]
+tags: [interviews, algorithms, notes, sorting]
 math: true
 ---
 > Given an array $A$ of numbers, find a permutation of it so that the array's elements are monotonic in its indices.

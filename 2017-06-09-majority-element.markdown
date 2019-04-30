@@ -2,7 +2,7 @@
 layout: single
 title:  "Majority Element"
 date:   2017-06-09
-categories: [interviews, algorithms, notes]
+tags: [interviews, algorithms, notes]
 published: false
 math: true
 ---

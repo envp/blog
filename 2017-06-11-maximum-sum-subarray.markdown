@@ -2,7 +2,7 @@
 layout: single
 title:  "Maximum Sum Subarray"
 date:   2017-06-11
-categories: [interviews, algorithms, notes]
+tags: [interviews, algorithms, notes]
 math: true
 draft: true
 ---
