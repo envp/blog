@@ -2,7 +2,7 @@
 layout: single
 title:  "Analysis of Tail Recursive Quicksort"
 date:   2017-08-03
-categories: [analysis, algorithms, notes]
+categories: [analysis, algorithms, quicksort]
 math: true
 psuedocode: true
 ---
